@@ -30,12 +30,9 @@ if(empty($_POST)=== false){
 
 if(empty($_POST) === false && empty($errors) === true){
 	$food_data= array(
-		'IDFood' => $_POST['IDFood'],
-		
+		'IDFood' => $_POST['IDFood']	
 	);
-
-	
-	header('Location: Food.php?IDFood='.$food_data['IDFood']);
+	header('Location: food.php?IDFood='.$food_data['IDFood']);
 	exit();
 	
 }else if (empty($errors)=== false){

@@ -2,7 +2,7 @@
 
 
 
-function food_data($user_id){
+function food_data($IDFood){
 	$data = array();
 	$user_id= (int)$user_id;
 	$func_num_args = func_num_args();
@@ -10,7 +10,7 @@ function food_data($user_id){
 	if($func_num_args >1){
 		unset($func_get_args[0]);
 		$fields = '`' . implode('` , `', $func_get_args) .'`';
-		$data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `PERSON` WHERE `idPERSON` = $user_id"));
+		$data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `Food` WHERE `IDFood` = $IDFood"));
 		return $data;
 	}
 }
