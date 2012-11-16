@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteEngine % {REQUEST_FILENAME} !-f
+RewriteEngine % {REQUEST_FILENAME} !-d
+RewriteEngine ^(.*) /nfs/stak/students/r/rindalp/public_html/profile.php?username=$1
