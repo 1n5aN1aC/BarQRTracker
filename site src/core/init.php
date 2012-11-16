@@ -5,8 +5,7 @@ ini_set('display_errors', 'On');
 require 'database/connect.php';
 require 'functions/users.php';
 require 'functions/general.php';
-require 'functions/group.php';
-require 'functions/event.php';
+require 'functions/foods.php';
 
 
 if (logged_in() === true){
@@ -19,9 +18,6 @@ if (logged_in() === true){
 		
 	}
 }
-$group_id =1;
-
-$group_data = group_data($group_id, 'Made_by','Name','About','idGROUP');
 
 $errors = array();
 ?>
