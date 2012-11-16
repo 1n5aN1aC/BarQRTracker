@@ -1,6 +1,4 @@
-<?php 
-
-
+<?php
 
 function food_data($IDFood){
 	$data = array();
@@ -15,11 +13,9 @@ function food_data($IDFood){
 	}
 }
 
-
 function food_exists($IDFood){
 	$username= sanitize($IDFood);
 	$query= mysql_query("SELECT COUNT('IDFood') from `Food` where `IDFood` = '$IDFood'");
 	return (mysql_result($query, 0)== 1) ? true : false;
 }
-
 ?>

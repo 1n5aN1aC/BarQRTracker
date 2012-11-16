@@ -39,7 +39,6 @@ else {
 	else if (empty($errors)=== false){
 		echo output_errors($errors);
 	}
-
 	?>
 <form action="" method="post">
 	<ul>

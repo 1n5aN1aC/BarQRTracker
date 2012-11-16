@@ -20,6 +20,7 @@ function change_password($user_id, $password){
 	
 	mysql_query("UPDATE `FoodPerson` SET `Password` = '$password' WHERE `idPERSON` = $user_id ");
 }
+
 function register_user($register_data){
 	array_walk($register_data, 'array_sanitize');
 	$register_data['Password']=md5($register_data['Password']);
@@ -47,8 +48,6 @@ function user_data($user_id){
 	}
 }
 
-
-
 function logged_in() {
 	return (isset($_SESSION['user_id'])) ? true : false;
 }
@@ -63,7 +62,8 @@ function user_exists($username){
 function user_id_from_username($username){
 	$username = sanitize($username);
 	return mysql_result(mysql_query("SELECT `IDPerson` from `FoodPerson` where `Login` = '$username'"), 0, 'IDPerson');
-} 
+}
+
 function username_from_user_id($userid){
 	$userid = sanitize($userid);
 	return mysql_result(mysql_query("SELECT `Login` from `FoodPerson` where `IDPerson` = $userid"), 0);
