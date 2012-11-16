@@ -58,6 +58,18 @@ function user_exists($username){
 	return (mysql_result($query, 0)== 1) ? true : false;
 }
 
+function user_active($username){
+	$username= sanitize($username);
+	return (mysql_result(mysql_query("SELECT COUNT(`IDPerson`) FROM `FoodPerson` WHERE `Login` = '$username' AND `Active` = 1 "),0) == 1) ? true : false;  
+}
+
+function email_exists($email){
+	$email= sanitize($email);
+	$query= mysql_query("SELECT COUNT('IDPerson') from `FoodPerson` where `Email` = '$email'");
+	return (mysql_result($query, 0)== 1) ? true : false;
+}
+
+
 function user_id_from_username($username){
 	$username = sanitize($username);
 	return mysql_result(mysql_query("SELECT `IDPerson` from `FoodPerson` where `Login` = '$username'"), 0, 'IDPerson');
