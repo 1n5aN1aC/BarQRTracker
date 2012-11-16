@@ -10,4 +10,4 @@ Our website on <b>[web.engr.oregonstate.edu](http://web.engr.oregonstate.edu/~ri
 
 Homework #6 on [google docs:](https://docs.google.com/document/d/1QTqyGKPSJNfHLhrAb3iURIh8mv6ZY-TRTsuJQkzX89E/edit)
 
-wiki for [todo](https://github.com/1n5aN1aC/BarQRTracker/wiki)
+What needs done by [First Implementation](https://github.com/1n5aN1aC/BarQRTracker/issues?milestone=1&page=1&state=open)
