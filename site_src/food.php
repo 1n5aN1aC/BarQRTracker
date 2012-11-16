@@ -4,7 +4,6 @@ include 'includes/overall/header.php';
 ?>
 <h1>Food Look Up</h1>
 
-
 <?php
 
 if(empty($_POST)=== false&&empty($_GET)===true){
@@ -31,7 +30,6 @@ if(empty($_POST) === false && empty($errors) === true){
 	);
 	header('Location: Food.php?IDFood='.$food_data['IDFood']);
 	exit();
-	
 }else if (empty($errors)=== false){
 	echo output_errors($errors);
 }
@@ -41,7 +39,6 @@ if(empty($_GET['IDFood'])===false){
 	echo 'Description:  '.$food_data['Description'].'<br>';
 	echo 'Calories:  '.$food_data['Calories'].'<br>';
 }
-
 ?>
 
 <form action="" method="post">
@@ -58,7 +55,6 @@ if(empty($_GET['IDFood'])===false){
 <?php
 
 if(logged_in()){
-
-
+	//do something
 }
 include 'includes/overall/footer.php';?>

@@ -29,7 +29,6 @@ if(empty($_POST) === false && empty($errors) === true){
 	);
 	header('Location: food.php?IDFood='.$food_data['IDFood']);
 	exit();
-	
 }
 else if (empty($errors)=== false){
 	echo output_errors($errors);
@@ -47,7 +46,6 @@ else if (empty($errors)=== false){
 		</li>
 	</ul>
 </form>
-
 
 <?php
 if(logged_in()){

@@ -57,8 +57,7 @@ else{
 	else if (empty($errors)=== false){
 		echo output_errors($errors);
 	}
-	?>
-
+?>
 	<form action="" method="post">
 		<ul>
 			<li>
@@ -90,6 +89,6 @@ else{
 			</li>
 		</ul>
 	</form>
-	<?php
+<?php
 }
  include 'includes/overall/footer.php';?>

@@ -35,7 +35,6 @@ if(empty($_POST)=== false){
 		}
 		 */
 	}
-	
 }
 	//print_r($errors);
 ?>
@@ -63,12 +62,11 @@ else{
 		update_user($update_data);
 		header('Location: settings.php?success');
 		exit();
-		
 	}
 	else if (empty($errors)=== false){
 		echo output_errors($errors);
 	}
-	?>
+?>
 	<form action="" method="post">
 		<ul>
 			<li>
@@ -115,7 +113,7 @@ else{
 			<li>
 				<input type="submit" value ="update">
 			</li>
-	<?php
+<?php
 }
 include 'includes/overall/footer.php';
 ?>

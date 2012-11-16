@@ -32,7 +32,8 @@ if (isset($_GET['username']) === true && empty($_GET['username']) === false){
 				friend_request_denied($user_data['idPERSON'],$profile_data['idPERSON']);
 				header('Location:profile.php?username='.$profile_data['Login']); 
 				exit();
-			}else if(isset($_GET['acceptfriend']) === true && empty($_GET['acceptfriend']) === true){
+			}
+			else if(isset($_GET['acceptfriend']) === true && empty($_GET['acceptfriend']) === true){
 				friend_request_accepted($user_data['idPERSON'],$profile_data['idPERSON']);
 				header('Location:profile.php?username='.$profile_data['Login']);
 				exit();				
@@ -59,6 +60,5 @@ else{
 }
 
 include 'includes/profileposts.php';
-
 include 'includes/overall/footer.php';
 ?>

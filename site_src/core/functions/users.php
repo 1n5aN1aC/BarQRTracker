@@ -52,7 +52,6 @@ function logged_in() {
 	return (isset($_SESSION['user_id'])) ? true : false;
 }
 
-
 function user_exists($username){
 	$username= sanitize($username);
 	$query= mysql_query("SELECT COUNT('IDPerson') from `FoodPerson` where `Login` = '$username'");

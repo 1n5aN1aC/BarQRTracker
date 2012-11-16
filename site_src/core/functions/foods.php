@@ -1,5 +1,4 @@
 <?php
-
 function food_data($IDFood){
 	$data = array();
 	$user_id= (int)$user_id;

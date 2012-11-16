@@ -1,5 +1,5 @@
-    <!doctype html>
-    <html>
+<!doctype html>
+<html>
 <?php
 include 'includes/head.php';
 ?>

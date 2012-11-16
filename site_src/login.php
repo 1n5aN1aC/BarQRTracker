@@ -23,8 +23,6 @@ if (empty($_POST) === false) {
 			exit();
 		} 	
 	}
-	
-	
 }
 else{
 	$errors[] = 'No data received';
