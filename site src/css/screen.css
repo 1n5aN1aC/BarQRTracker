@@ -31,6 +31,7 @@
     ul li input[type="text"], ul li input[type="password"] {
         width:200px;
     }
+
     /* Headers */
     h1 {
         font-size:1.8em;
@@ -52,7 +53,7 @@
         width:400px;
         color:#fff;
     }
-	
+
     /* Containers */
     body {
         background:#006600;
@@ -89,6 +90,7 @@
     .widget .inner {
         margin:0 10px;
     }
+
     /* Navigation */
     nav {
         float:left;
@@ -109,6 +111,7 @@
     nav ul li a.last {
         border-right:0;
     }
+
     /* Aside */
     aside {
         width:260px;
@@ -116,15 +119,18 @@
         border-left:1px dashed #aaa;
         padding-left:15px;
     }
+
     /* Login */
     #login li.link {
         margin-top:5px;
     }
+
     /* Footer */
     footer {
         border-top:1px dashed #ddd;
         color:#999;
     }
+
     /* Misc */
     .clear {
         clear:both;
