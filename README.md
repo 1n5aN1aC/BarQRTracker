@@ -2,7 +2,7 @@ BarQRTracker
 ============
 
 Tracks Bar Codes and QR Codes for Health Tracking  
-In reality, it just uses numbers and search.  But QR codes is a possibility, time permitting.
+In reality, it just uses numbers and search.  But QR codes are a possibility, time permitting.
 
 
 Links:
