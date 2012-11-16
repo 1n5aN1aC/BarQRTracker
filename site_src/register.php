@@ -66,11 +66,11 @@ else{
 			</li>
 			<li>
 				Password*:<br>
-				<input type="text" name="password">
+				<input type="text" type="password" name="password">
 			</li>
 			<li>
 				Password again*:<br>
-				<input type="text" name="password_again">
+				<input type="text" type="password" name="password_again">
 			</li>
 			<li>
 				First name*:<br>
