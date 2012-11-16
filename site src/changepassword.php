@@ -1,6 +1,7 @@
 <?php 
 include 'core/init.php';
 protect_page();
+
 if(empty($_POST) === false){
 	$required_fields = array('current_passwor','password','password_again');
 	foreach($_POST as $key=>$value){
@@ -17,24 +18,25 @@ if(empty($_POST) === false){
 		if (strlen($_POST['password'])<6){
 			$errors[]='your new passwords has to be at least 6 characters';
 		}
-	}else{
+	}
+	else{
 		$errors[] ='you \'current password\' is incorrect';
 	}
-	
 	//print_r($errors);
 }
-
 include 'includes/overall/header.php';
 ?>
 <h1>Change password</h1>
 <?php
 if(isset($_GET['success']) && empty($_GET['success'])){
 	echo 'you have been registered successfully!<br>';
-}else {
+}
+else {
 	if(empty($_POST) === false && empty($errors) === true){
 		change_password($session_user_id, $_POST['password']);	
 		header('Location: changepassword.php?success');
-	}else if (empty($errors)=== false){
+	}
+	else if (empty($errors)=== false){
 		echo output_errors($errors);
 	}
 

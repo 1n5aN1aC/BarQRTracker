@@ -2,6 +2,7 @@
 include 'core/init.php';
 protect_page();
 include 'includes/overall/header.php';
+
 if (isset($_GET['username']) === true && empty($_GET['username']) === false){
 	$username = $_GET['username'];
 	if(user_exists($username)){
@@ -11,9 +12,7 @@ if (isset($_GET['username']) === true && empty($_GET['username']) === false){
 		$friends = mysql_result(mysql_query("SELECT COUNT(idFRIEND1) FROM `FRIENDS` WHERE `Pending_on` = 0 AND `idFRIEND1`= ".$user_data['idPERSON']." and `idFRIEND2`=".$profile_data['idPERSON']),0);
 		$pending_to=mysql_result(mysql_query("SELECT COUNT(idFRIEND1) FROM `FRIENDS` WHERE `Pending_on` = ".$profile_data['idPERSON']." AND `idFRIEND2`= ".$user_data['idPERSON']." and `idFRIEND1`=".$profile_data['idPERSON']),0);
 		$pending_from=mysql_result(mysql_query("SELECT COUNT(idFRIEND1) FROM `FRIENDS` WHERE `Pending_on` = ".$user_data['idPERSON']." AND `idFRIEND1`= ".$user_data['idPERSON']." and `idFRIEND2`=".$profile_data['idPERSON']),0);
-		
-		
-		
+
 		?>	
 		<h1><?php echo $profile_data['Fname'];?>'s profile</h1>
 		<?php
@@ -24,9 +23,11 @@ if (isset($_GET['username']) === true && empty($_GET['username']) === false){
 				exit();
 			}
 			echo '<a href="profile.php?username='.$profile_data['Login'].'&addfriend">add as friend<br><br></a>';
-		}else if ($pending_from ==0 && $pending_to==1 && $user_data['idPERSON']!= $profile_data['idPERSON']){
+		}
+		else if ($pending_from ==0 && $pending_to==1 && $user_data['idPERSON']!= $profile_data['idPERSON']){
 			echo 'Friend request pending...<br><br>';
-		}else if ($pending_from ==1 && $pending_to==0 && $user_data['idPERSON']!= $profile_data['idPERSON']){
+		}
+		else if ($pending_from ==1 && $pending_to==0 && $user_data['idPERSON']!= $profile_data['idPERSON']){
 			if(isset($_GET['denyfriend']) === true && empty($_GET['denyfriend']) === true){
 				friend_request_denied($user_data['idPERSON'],$profile_data['idPERSON']);
 				header('Location:profile.php?username='.$profile_data['Login']); 
@@ -47,13 +48,14 @@ if (isset($_GET['username']) === true && empty($_GET['username']) === false){
 		}?>
 		<p>
 		<?php	
-	}else{
+	}
+	else{
 		echo'sorry that user doesnt exists';
 	}
-}else{
+}
+else{
 	header('Location: index.php');
 	exit();
-	
 }
 
 include 'includes/profileposts.php';

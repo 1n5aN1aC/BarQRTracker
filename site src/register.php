@@ -3,7 +3,6 @@ include 'core/init.php';
 logged_in_redirect();
 include 'includes/overall/header.php';
 
-
 if(empty($_POST)=== false){
 	$required_fields = array('username','password','password_again','firstname','email');
 	foreach($_POST as $key=>$value){
@@ -12,7 +11,7 @@ if(empty($_POST)=== false){
 			break 1;
 		}
 	}
-	
+
 	if(empty($errors)=== true){
 		if(user_exists($_POST['username']) === true ){
 			$errors[] = 'sorry, the username \'' . $_POST['username'] . '\' is already taken';
@@ -40,7 +39,8 @@ if(empty($_POST)=== false){
 <?php
 if(isset($_GET['success']) && empty($_GET['success'])){
 	echo 'you have been registered successfully!';
-}else{
+}
+else{
 	if(empty($_POST) === false && empty($errors) === true){
 		$register_data= array(
 			'Login' => $_POST['username'],
@@ -53,11 +53,10 @@ if(isset($_GET['success']) && empty($_GET['success'])){
 		register_user($register_data);
 		header('Location: register.php?success');
 		exit();
-		
-	}else if (empty($errors)=== false){
+	}
+	else if (empty($errors)=== false){
 		echo output_errors($errors);
 	}
-
 	?>
 
 	<form action="" method="post">

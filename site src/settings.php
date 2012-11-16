@@ -4,6 +4,7 @@ protect_page();
 include 'includes/overall/header.php';
 
 if(empty($_POST)=== false){
+	//checks for required fields
 	$required_fields = array('Fname','email');
 	foreach($_POST as $key=>$value){
 		if(empty($value)&& in_array($key, $required_fields) === true){
@@ -11,7 +12,6 @@ if(empty($_POST)=== false){
 			break 1;
 		}
 	}
-	//^^^^checks for required fields
 	
 	if(empty($errors)=== true){
 		if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)=== false){
@@ -34,8 +34,6 @@ if(empty($_POST)=== false){
 			$errors[] = 'your password must match';
 		}
 		 */
-		
-		
 	}
 	
 }
@@ -46,7 +44,8 @@ if(empty($_POST)=== false){
 <?php 
 if(isset($_GET['success']) && empty($_GET['success'])){
 	echo 'your settings have been updated successfully!';
-}else{
+}
+else{
 	if(empty($_POST) === false && empty($errors) === true){
 		$update_data = array(
 			'Fname' => $_POST['Fname'],
@@ -65,7 +64,8 @@ if(isset($_GET['success']) && empty($_GET['success'])){
 		header('Location: settings.php?success');
 		exit();
 		
-	}else if (empty($errors)=== false){
+	}
+	else if (empty($errors)=== false){
 		echo output_errors($errors);
 	}
 	?>
