@@ -5,7 +5,7 @@ include 'includes/overall/header.php';
 
 
 if(empty($_POST)=== false){
-	$required_fields = array('username','password','password_again','firstname','email');
+	$required_fields = array('username','password','password_again','firstname');
 	foreach($_POST as $key=>$value){
 		if(empty($value)&& in_array($key, $required_fields) === true){
 			$errors[] = 'fields marked with an * are required';
@@ -26,12 +26,19 @@ if(empty($_POST)=== false){
 		if($_POST['password'] !== $_POST['password_again']){
 			$errors[] = 'your password must match';
 		}
-		if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)=== false){
-			$errors[] = 'A valid email address is required';
+		if(empty($_POST['activityLevel']) === false&&$_POST['activityLevel']>=10&&$_POST['activityLevel']<=1){
+			$errors[] = 'Activity level bust be in the range 1-10';
 		}
-		if(email_exists($_POST['email']) === true ){
-			$errors[] = 'sorry, the email \'' . $_POST['email'] . '\' is already in use';
+		if(empty($_POST['weight']) === false&&$_POST['weight']<=0&&$_POST['activityLevel']>=999){
+			$errors[] = 'Weight must be in the range 1-999';
 		}
+		if(empty($_POST['foot']) === false&&$_POST['foot']<=0){
+			$errors[] = 'Height in feet must be in the range 1-9';
+		}
+		if(empty($_POST['inches']) === false&&$_POST['inches']<0&&$_POST['inches']>12){
+			$errors[] = 'Height in feet must be in the range 0-12';
+		}
+		
 		//print_r($errors);	
 	}
 }
@@ -47,7 +54,11 @@ if(isset($_GET['success']) && empty($_GET['success'])){
 			'Password' => $_POST['password'],
 			'Fname' => $_POST['Fname'],
 			'Lname' => $_POST['Lname'],
-			'email' => $_POST['email'],
+			'Gender' => $_POST['sex'],
+			'HeightFeet' => $_POST['feet'],
+			'HeightInches' => $_POST['inches'],
+			'Weight' => $_POST['weight'],
+			'ActivityLevel' => ($_POST['activityLevel']-1)
 		);
 
 		register_user($register_data);
@@ -83,10 +94,24 @@ if(isset($_GET['success']) && empty($_GET['success'])){
 				<input type="text" name="Lname">
 			</li>
 			<li>
-				Email*:<br>
-				<input type="text" name="email">
+				Gender:<br>
+				<input type="radio" name="sex" value="M" > Male<br />
+				<input type="radio" name="sex" value="F" > Female
 			</li>
 			<li>
+				Height:<br>
+				<input type="text" name="feet" maxlength="1" style="width:20px;"/>Feet<br>
+				<input type="text" name="inches" maxlength="2"style="width:20px;"/>Inches
+			</li>
+			<li>
+				Weight:<br>
+				<input type="text" name="weight" maxlength="3" style="width:30px;"/>Lbs
+			</li>
+			<li>
+				Activity Level (1-10):<br>
+				<input type="text" name="activityLevel" maxlength="2" style="width:30px;"/>(1 for no exercise, 10 for 8 hours a day of exercise)
+			</li>
+			<li> 
 				<input type="submit" value="Register">
 			</li>
 		</ul>

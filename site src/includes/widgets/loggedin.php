@@ -10,7 +10,7 @@
 				<a href="changepassword.php">change password</a>
 			</li>
 			<li>
-				<a href="settings.php">Settings</a>
+				<a href="settings.php">Update personal info.</a>
 			</li>
 			
 		</ul>

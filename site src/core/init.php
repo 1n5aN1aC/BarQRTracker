@@ -10,7 +10,7 @@ require 'functions/foods.php';
 
 if (logged_in() === true){
 	$session_user_id= $_SESSION['user_id'];
-	$user_data = user_data($session_user_id, 'IDPerson','Login','Password','Fname','Lname', 'Gender','HeightFeet','HieghtInches','Weight','ActivityLevel');
+	$user_data = user_data($session_user_id, 'IDPerson','Login','Password','Fname','Lname', 'Gender','HeightFeet','HeightInches','Weight','ActivityLevel');
 	
 }
 
