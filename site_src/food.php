@@ -5,7 +5,6 @@ include 'includes/overall/header.php';
 <h1>Food Look Up</h1>
 
 <?php
-
 if(empty($_POST)=== false&&empty($_GET)===true){
 	$required_fields = array('IDFood');
 	foreach($_POST as $key=>$value){
@@ -19,7 +18,6 @@ if(empty($_POST)=== false&&empty($_GET)===true){
 		if(food_exists($_POST['IDFood']) === false ){
 			$errors[] = 'sorry, the food ID \'' . $_POST['IDFood'] . '\' does not exist';
 		}
-		
 		//print_r($errors);	
 	}
 }
@@ -30,17 +28,21 @@ if(empty($_POST) === false && empty($errors) === true){
 	);
 	header('Location: Food.php?IDFood='.$food_data['IDFood']);
 	exit();
-}else if (empty($errors)=== false){
+	
+}
+else if (empty($errors)=== false){
 	echo output_errors($errors);
 }
 if(empty($_GET['IDFood'])===false){
 	$food_data=food_data($_GET['IDFood'],'IDPerson','Name','Description','PicURL','Calories');
 	echo '<br><h2>'.$food_data['Name'].'</h2>';
-	echo 'Description:  '.$food_data['Description'].'<br>';
+	?><img src="upload/<?php echo $_GET['IDFood']?>"  width="300"> <?php
+	echo '<br>Description:  '.$food_data['Description'].'<br>';
 	echo 'Calories:  '.$food_data['Calories'].'<br>';
 }
-?>
+else{
 
+?>
 <form action="" method="post">
 	<ul>
 		<li>
@@ -53,8 +55,9 @@ if(empty($_GET['IDFood'])===false){
 	</ul>
 </form>
 <?php
-
+}
 if(logged_in()){
 	//do something
 }
-include 'includes/overall/footer.php';?>
+include 'includes/overall/footer.php';
+?>
