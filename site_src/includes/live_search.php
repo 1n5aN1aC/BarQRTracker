@@ -11,6 +11,7 @@ echo "<center><table border='1'><tr>
 <th>Food ID</th>
 <th>Calories</th>
 <th>Fat</th>
+<th>Details</th>
 <th>Add</th>
 </tr>";
 
@@ -22,6 +23,7 @@ while($row = mysql_fetch_array($result))
   echo "<td>" . $row['IDFood']; "</td>";
   echo "<td>" . $row['Calories'] . "</td>";
   echo "<td>" . $row['totalFat'] . "</td>";
+  echo "<td><a href='food.php?IDFood=" . $row['IFFood'] . "><img src='img/Details_Icon.png' alt='Details'/></a></td>";
   echo "<td><a href='#' onclick=addfood(" . $row[ID_Number] . "')><img src='img/Add_Icon.png' alt='Add'/></a></td>";
   echo "</td></tr>";
 }
