@@ -60,7 +60,20 @@ if(isset($_GET['success']) && empty($_GET['success'])){
 			'IDPerson' => $user_data['IDPerson'],
 			'Name' => $_POST['name'],
 			'Description' => $_POST['description'],
-			'Calories' => $_POST['cal']
+			'Calories' => $_POST['cal'],
+			'totalFat'=>$_POST['totalFat'],
+			'saturatedFat'=>$_POST['saturatedFat'],
+			'transFat'=>$_POST['transFat'],
+			'cholesterol'=>$_POST['cholesterol'],
+			'sodium'=>$_POST['sodium'],
+			'totalCarbohydrates'=>$_POST['totalCarbohydrates'],
+			'protien'=>$_POST['protien'],
+			'vA'=>$_POST['vA'],
+			'vC'=>$_POST['vC'],
+			'calcium'=>$_POST['calcium'],
+			'iron'=>$_POST['iron'],
+			'dietaryFiber'=>$_POST['dietaryFiber'],
+			'sugars'=>$_POST['sugars'],
 		);
 		
 		$returnID=add_food($food_data);
@@ -89,14 +102,27 @@ if(logged_in()){
 enctype="multipart/form-data">
 Food name*:<input type="text" name="name"/><br><br>
 Description:<br> <textarea name="description" COLS=30 ROWS=3></TEXTAREA><br>
-Calories:<input type="text" name="cal"/><br><br>
+Calories:<input type="text" name="cal"/><br>
+Total Fat:<input type="text" name="totalFat"/>(g)<br>
+Saturated Fat:<input type="text" name="saturatedFat"/>(g)<br>
+Trans Fat:<input type="text" name="transFat"/>(g)<br>
+Cholesterol:<input type="text" name="cholesterol"/>(g)<br>
+Sodium:<input type="text" name="sodium"/>(g)<br>
+Total Carbohydrates:<input type="text" name="totalCarbohydrates"/>(g)<br>
+   Dietary Fiber:<input type="text" name="dietaryFiber"/>(g)<br>
+Sugars:<input type="text" name="sugars"/>(g)<br>
+Protien:<input type="text" name="protien"/>(g)<br>
+Vitamin A:<input type="text" name="vA"/>(percent)<br>
+Vitamin C:<input type="text" name="vC"/>(percent)<br>
+Calcium:<input type="text" name="calcium"/>(percent)<br>
+Iron:<input type="text" name="iron"/>(percent)<br><br>
 <label for="file">image:</label>
 <input type="file" name="file" id="file" />
 <br />
 
 <input type="submit" name="submit" value="Submit" />
 </form>
-
+<br/>*percent based on daily value of a 20,000 calory diet
 <?php
 }else{
 	echo 'You must be logged in to upload a food.';
